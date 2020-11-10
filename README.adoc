@@ -1,0 +1,5 @@
+= vim-select-more extension to vim-select
+
+TBD.
+
+Should have all the extended selections currently provided by vim-select.
