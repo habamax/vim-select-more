@@ -34,6 +34,7 @@ let g:select_info.cmdhistory = {}
 let g:select_info.cmdhistory.data = {-> range(1, histnr("cmd"))
             \ ->map({i -> printf("%*d: %s", len(histnr("cmd")), i, histget("cmd", i))})
             \ ->filter({_, v -> v !~ '^\s*\d\+:\s*$'})
+            \ ->reverse()
             \ }
 let g:select_info.cmdhistory.sink = {
             \ "transform": {_, v -> matchstr(v, '^\s*\d\+:\s*\zs.*$')},
