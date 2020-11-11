@@ -23,3 +23,8 @@ image::https://user-images.githubusercontent.com/234774/98789435-5725b680-2413-1
 == Select Highlight
 
 image::https://user-images.githubusercontent.com/234774/98789440-5856e380-2413-11eb-8504-e297668c614c.gif[]
+
+
+== Select Buffer Tag
+
+image::https://user-images.githubusercontent.com/234774/98802492-72e58880-2424-11eb-9e15-91543ca26cee.gif[]
