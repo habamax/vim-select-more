@@ -19,4 +19,3 @@ if exists("g:loaded_select")
                 \ }
     let b:select_info.bufdef.highlight = {"PrependLineNr": ['^\(\s*\d\+:\)', 'LineNr']}
 endif
-
