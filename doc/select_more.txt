@@ -28,7 +28,7 @@ Safe (will not create mappings if plugin was not loaded):
         nmap <leader>/ <Plug>(SelectBufLine)
         nmap <leader>fc <Plug>(SelectColors)
         nmap <leader>fh <Plug>(SelectHighlight)
-        nmap <leader>gd <Plug>(SelectBufDef)
+        nmap <leader>ft <Plug>(SelectBufTag)
     endif
 
 or regular:
@@ -39,7 +39,7 @@ or regular:
     nmap <leader>/ <Plug>(SelectBufLine)
     nmap <leader>fc <Plug>(SelectColors)
     nmap <leader>fh <Plug>(SelectHighlight)
-    nmap <leader>gd <Plug>(SelectBufDef)
+    nmap <leader>ft <Plug>(SelectBufTag)
 
 
 
@@ -77,9 +77,8 @@ Select colorscheme and apply it.
 Select syntax highligh and copy it into unnamed register ".
 
 
-:Select bufdef                                                *:Select_bufdef*
+:Select buftag                                                *:Select_buftag*
 
-Select interesting info in a buffer (per filetype) and go there.
+Select buffer tag and go to it.
 
-* markdown and asciidoctor -- headers.
-* vim -- function definitions, commands and autocommands.
+NOTE: External tool `ctags` is required.

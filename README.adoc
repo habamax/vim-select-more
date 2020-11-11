@@ -30,7 +30,7 @@ if exists("g:loaded_select")
     nmap <leader>/ <Plug>(SelectBufLine)
     nmap <leader>fc <Plug>(SelectColors)
     nmap <leader>fh <Plug>(SelectHighlight)
-    nmap <leader>gd <Plug>(SelectBufDef)
+    nmap <leader>ft <Plug>(SelectBufTag)
 endif
 ------------------------------------------------------------------------------
 
@@ -46,7 +46,7 @@ nmap <leader>: <Plug>(SelectCmdHistory)
 nmap <leader>/ <Plug>(SelectBufLine)
 nmap <leader>fc <Plug>(SelectColors)
 nmap <leader>fh <Plug>(SelectHighlight)
-nmap <leader>gd <Plug>(SelectBufDef)
+nmap <leader>ft <Plug>(SelectBufTag)
 ------------------------------------------------------------------------------
 
 
@@ -66,9 +66,6 @@ NOTE: External tool `ripgrep` is required.
 
 * `:Select highlight` group and copy it into unnamed register `"`.
 
-* `:Select bufdef` -- select "interesting" buffer definitions per filetype and go there:
-
-    ** `markdown` and `asciidoctor` headers;
-    ** `vimscript` functions, commands and autocommands;
-    ** more would be added.
-
+* `:Select buftag` -- select buffer tag and go to it.
++
+NOTE: External tool `ctags` is required.

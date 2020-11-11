@@ -10,6 +10,7 @@ nnoremap <silent> <Plug>(SelectCmd) :Select command<CR>
 nnoremap <silent> <Plug>(SelectColors) :Select colors<CR>
 nnoremap <silent> <Plug>(SelectHelp) :Select help<CR>
 nnoremap <silent> <Plug>(SelectBufLine) :Select bufline<CR>
+nnoremap <silent> <Plug>(SelectBufTag) :Select buftag<CR>
 
 
 let g:select_info = get(g:, "select_info", {})
@@ -27,7 +28,7 @@ let g:select_info.colors.sink = "colorscheme %s"
 """ Select help
 """
 let g:select_info.help = {}
-let g:select_info.help.data = {"cmd": {-> s:get_helptags()}}
+let g:select_info.help.data = {"job": {-> s:get_helptags()}}
 let g:select_info.help.sink = "help %s"
 
 
@@ -87,6 +88,21 @@ let g:select_info.cmdhistory.sink = {
 let g:select_info.cmdhistory.highlight = {"PrependLineNr": ['^\(\s*\d\+:\)', 'LineNr']}
 
 
+if executable("ctags")
+    let g:select_info.buftag = {}
+    let g:select_info.buftag.data = {
+                \ "transform_output": {v -> s:transform_tag(v)},
+                \ "job": {_, init_buf -> s:get_btags(bufname(init_buf.bufnr))}}
+    let g:select_info.buftag.sink = {
+            \ "transform": {_, v -> matchstr(v, '^\s*\zs\d\+')},
+            \ "action": "normal! %sG"
+            \}
+    let g:select_info.buftag.highlight = {
+                \ "PrependLineNr": ['^\(\s*\d\+:\)', 'LineNr'],
+                \ "TagType": ['\t\a\t', 'Type'],
+                \ }
+endif
+
 """
 """ Helpers
 """
@@ -123,4 +139,20 @@ func! s:highlight_sink(val)
     redir END
     let @" = trim(substitute(l:hl, '\s*xxx\s*', ' ', ''))
     echo @" 'is copied to unnamed register'
+endfunc
+
+
+"" Get list of tags for a filename
+func! s:get_btags(filename) abort
+    return "ctags -f - --sort=yes --excmd=number "..a:filename.." 2> null"
+endfunc
+
+
+"" Make tag info more readable
+func! s:transform_tag(tag) abort
+    let tag_info = split(a:tag, '\t')
+    return printf("%5s:\t%s\t%s",
+                \ matchstr(tag_info[2], '\d\+'),
+                \ tag_info[3],
+                \ tag_info[0])
 endfunc
