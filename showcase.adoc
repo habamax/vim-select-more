@@ -1,0 +1,30 @@
+= Showcase!
+
+== Select Buffer Definition
+
+image::https://user-images.githubusercontent.com/234774/98789427-555bf300-2413-11eb-81d3-d7a82c0317d6.gif[]
+
+
+== Select Buffer Line
+
+image::https://user-images.githubusercontent.com/234774/98789429-55f48980-2413-11eb-876a-c23bb565b720.gif[]
+
+
+== Select Colorscheme
+
+image::https://user-images.githubusercontent.com/234774/98789432-568d2000-2413-11eb-935d-45af40222500.gif[]
+
+
+== Select Command
+
+image::https://user-images.githubusercontent.com/234774/98789435-5725b680-2413-11eb-8cee-2b5f1868fdfa.gif[]
+
+
+== Select Help
+
+image::https://user-images.githubusercontent.com/234774/98789437-57be4d00-2413-11eb-9f93-b4d6144792d4.gif[]
+
+
+== Select Highlight
+
+image::https://user-images.githubusercontent.com/234774/98789440-5856e380-2413-11eb-8504-e297668c614c.gif[]

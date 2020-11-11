@@ -2,6 +2,8 @@
 
 Extend https://github.com/habamax/vim-select[vim-select] with more sources.
 
+See the link:showcase.adoc[animated gifs].
+
 
 == Installation
 
