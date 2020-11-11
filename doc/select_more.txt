@@ -1,0 +1,85 @@
+*select_more.txt* Extensions to vim-select
+
+Author:  Maxim Kim <https://habamax.github.io>
+URL:     https://github.com/habamax/vim-select-more
+License: MIT
+
+
+
+INTRODUCTION                                                     *select-more*
+
+This plugin extends https://github.com/habamax/vim-select with additional
+selects.
+
+
+
+MAPPINGS                                                *select-more-mappings*
+
+There are no default global mappings -- create your own.
+
+Safe (will not create mappings if plugin was not loaded):
+
+>
+    " add it to ~/.vim/after/plugin/select.vim
+    if exists("g:loaded_select_more")
+        nmap <leader>h <Plug>(SelectHelp)
+        nmap <leader>; <Plug>(SelectCmd)
+        nmap <leader>: <Plug>(SelectCmdHistory)
+        nmap <leader>/ <Plug>(SelectBufLine)
+        nmap <leader>fc <Plug>(SelectColors)
+        nmap <leader>fh <Plug>(SelectHighlight)
+        nmap <leader>gd <Plug>(SelectBufDef)
+    endif
+
+or regular:
+>
+    nmap <leader>h <Plug>(SelectHelp)
+    nmap <leader>; <Plug>(SelectCmd)
+    nmap <leader>: <Plug>(SelectCmdHistory)
+    nmap <leader>/ <Plug>(SelectBufLine)
+    nmap <leader>fc <Plug>(SelectColors)
+    nmap <leader>fh <Plug>(SelectHighlight)
+    nmap <leader>gd <Plug>(SelectBufDef)
+
+
+
+COMMANDS                                                *select-more-commands*
+
+:Select help                                                    *:Select_help*
+
+Select help tag and show relevant help topic.
+
+NOTE: External tool `ripgrep` is required.
+
+
+:Select command                                              *:Select_command*
+
+Select :ex command and put it on command line.
+
+
+:Select cmdhistory                                        *:Select_cmdhistory*
+
+Select :ex command from history and put it on command line.
+
+
+:Select bufline                                              *:Select_bufline*
+
+Select a line in a buffer and goto it.
+
+
+:Select colors                                                *:Select_colors*
+
+Select colorscheme and apply it.
+
+
+:Select highlight                                          *:Select_highlight*
+
+Select syntax highligh and copy it into unnamed register ".
+
+
+:Select bufdef                                                *:Select_bufdef*
+
+Select interesting info in a buffer (per filetype) and go there.
+
+* markdown and asciidoctor -- headers.
+* vim -- function definitions, commands and autocommands.

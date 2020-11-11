@@ -6,6 +6,10 @@ let g:loaded_select_more = 1
 nnoremap <silent> <Plug>(SelectHighlight) :Select highlight<CR>
 nnoremap <silent> <Plug>(SelectCmdHistory) :Select cmdhistory<CR>
 nnoremap <silent> <Plug>(SelectBufDef) :Select bufdef<CR>
+nnoremap <silent> <Plug>(SelectCmd) :Select command<CR>
+nnoremap <silent> <Plug>(SelectColors) :Select colors<CR>
+nnoremap <silent> <Plug>(SelectHelp) :Select help<CR>
+nnoremap <silent> <Plug>(SelectBufLine) :Select bufline<CR>
 
 
 let g:select_info = get(g:, "select_info", {})

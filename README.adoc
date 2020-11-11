@@ -1,5 +1,72 @@
-= vim-select-more extension to vim-select
+= vim-select-more: extension to vim-select
 
-TBD.
+Extend https://github.com/habamax/vim-select[vim-select] with more sources.
 
-Should have all the extended selections currently provided by vim-select.
+
+== Installation
+
+If you use package/plugin manager, consult their documentation.
+
+For manual installation clone this repository to your
+`~/.vim/pack/plugins/start/` path, where `plugins` subdirectory is arbitrary.
+
+NOTE: for windows users replace `~/.vim` to `~/vimfiles`.
+
+
+== Mappings
+
+There are no default global mappings -- create your own.
+
+.Safe (will not create mappings if plugin was not loaded)
+[source,vim]
+------------------------------------------------------------------------------
+" add it to ~/.vim/after/plugin/select.vim
+if exists("g:loaded_select")
+    nmap <leader>h <Plug>(SelectHelp)
+    nmap <leader>; <Plug>(SelectCmd)
+    nmap <leader>: <Plug>(SelectCmdHistory)
+    nmap <leader>/ <Plug>(SelectBufLine)
+    nmap <leader>fc <Plug>(SelectColors)
+    nmap <leader>fh <Plug>(SelectHighlight)
+    nmap <leader>gd <Plug>(SelectBufDef)
+endif
+------------------------------------------------------------------------------
+
+or
+
+.Regular
+[source,vim]
+------------------------------------------------------------------------------
+" add it to your vimrc
+nmap <leader>h <Plug>(SelectHelp)
+nmap <leader>; <Plug>(SelectCmd)
+nmap <leader>: <Plug>(SelectCmdHistory)
+nmap <leader>/ <Plug>(SelectBufLine)
+nmap <leader>fc <Plug>(SelectColors)
+nmap <leader>fh <Plug>(SelectHighlight)
+nmap <leader>gd <Plug>(SelectBufDef)
+------------------------------------------------------------------------------
+
+
+== Commands
+
+* `:Select help` tags from all help files.
++
+NOTE: External tool `ripgrep` is required.
+
+* `:Select command` from `:ex` and put it on command line.
+
+* `:Select cmdhistory` and put it on command line.
+
+* `:Select bufline` and go to it. 
+
+* `:Select colors` and apply it.
+
+* `:Select highlight` group and copy it into unnamed register `"`.
+
+* `:Select bufdef` -- select "interesting" buffer definitions per filetype and go there:
+
+    ** `markdown` and `asciidoctor` headers;
+    ** `vimscript` functions, commands and autocommands;
+    ** more would be added.
+
