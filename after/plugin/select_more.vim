@@ -1,7 +1,6 @@
-if exists('g:loaded_select_more') || !exists('g:loaded_select')
+if !exists('g:loaded_select')
     finish
 endif
-let g:loaded_select_more = 1
 
 nnoremap <silent> <Plug>(SelectHighlight) :Select highlight<CR>
 nnoremap <silent> <Plug>(SelectCmdHistory) :Select cmdhistory<CR>
