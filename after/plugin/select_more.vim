@@ -138,7 +138,7 @@ func! s:get_colorscheme_list() abort
 endfunc
 
 
-"" List of all help tags/topics.
+"" Get list of all help tags/topics.
 "" Uses ripgrep.
 func! s:get_helptags() abort
     let l:help = split(globpath(&runtimepath, 'doc/tags', 1), '\n')
@@ -146,7 +146,8 @@ func! s:get_helptags() abort
 endfunc
 
 
-func! s:get_highlights()
+"" Get list of highlights without highlights used by Select plugin
+func! s:get_highlights() abort
     redir => l:hl
     silent highlight
     redir END
@@ -154,7 +155,8 @@ func! s:get_highlights()
 endfunc
 
 
-func! s:highlight_sink(val)
+"" Copy selected highlight into unnamed buffer
+func! s:highlight_sink(val) abort
     redir => l:hl
     exe "silent highlight "..a:val
     redir END
