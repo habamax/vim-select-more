@@ -121,6 +121,8 @@ if executable("git")
                 \ "action3": "vsplit %s",
                 \ "action4": "tab split %s"
                 \ }
+    let g:select_info.gitfile.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
+    let g:select_info.gitfile.prompt = "Git File> "
 endif
 
 
