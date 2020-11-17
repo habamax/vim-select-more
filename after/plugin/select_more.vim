@@ -10,6 +10,8 @@ nnoremap <silent> <Plug>(SelectColors) :Select colors<CR>
 nnoremap <silent> <Plug>(SelectHelp) :Select help<CR>
 nnoremap <silent> <Plug>(SelectBufLine) :Select bufline<CR>
 nnoremap <silent> <Plug>(SelectBufTag) :Select buftag<CR>
+nnoremap <silent> <Plug>(SelectGitFile) :Select gitfile<CR>
+
 
 
 let g:select_info = get(g:, "select_info", {})
@@ -101,6 +103,21 @@ if executable("ctags")
                 \ "TagType": ['\t\a\t', 'Type'],
                 \ }
 endif
+
+
+"""
+""" Select gitfile
+"""
+let g:select_info.gitfile = {}
+let g:select_info.gitfile.data = {"job": "git ls-files"}
+let g:select_info.gitfile.sink = {
+            \ "transform": {p, v -> fnameescape(p..v)},
+            \ "action": "edit %s",
+            \ "action2": "split %s",
+            \ "action3": "vsplit %s",
+            \ "action4": "tab split %s"
+            \ }
+
 
 """
 """ Helpers

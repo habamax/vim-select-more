@@ -31,6 +31,7 @@ if exists("g:loaded_select")
     nmap <leader>fc <Plug>(SelectColors)
     nmap <leader>fh <Plug>(SelectHighlight)
     nmap <leader>ft <Plug>(SelectBufTag)
+    nmap <leader>fg <Plug>(SelectGitFile)
 endif
 ------------------------------------------------------------------------------
 
@@ -47,6 +48,7 @@ nmap <leader>/ <Plug>(SelectBufLine)
 nmap <leader>fc <Plug>(SelectColors)
 nmap <leader>fh <Plug>(SelectHighlight)
 nmap <leader>ft <Plug>(SelectBufTag)
+nmap <leader>fg <Plug>(SelectGitFile)
 ------------------------------------------------------------------------------
 
 
@@ -69,3 +71,5 @@ NOTE: External tool `ripgrep` is required.
 * `:Select buftag` -- select buffer tag and go to it.
 +
 NOTE: External tool `ctags` is required.
+
+* `:Select gitfile` -- select file from git repo of the current working directory.

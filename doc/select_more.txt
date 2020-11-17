@@ -29,6 +29,7 @@ Safe (will not create mappings if plugin was not loaded):
         nmap <leader>fc <Plug>(SelectColors)
         nmap <leader>fh <Plug>(SelectHighlight)
         nmap <leader>ft <Plug>(SelectBufTag)
+        nmap <leader>fg <Plug>(SelectGitFile)
     endif
 
 or regular:
@@ -40,6 +41,7 @@ or regular:
     nmap <leader>fc <Plug>(SelectColors)
     nmap <leader>fh <Plug>(SelectHighlight)
     nmap <leader>ft <Plug>(SelectBufTag)
+    nmap <leader>fg <Plug>(SelectGitFile)
 
 
 
@@ -82,3 +84,8 @@ Select syntax highligh and copy it into unnamed register ".
 Select buffer tag and go to it.
 
 NOTE: External tool `ctags` is required.
+
+
+:Select gitfile                                              *:Select_gitfile*
+
+Select file from git repo of the current working directory.
