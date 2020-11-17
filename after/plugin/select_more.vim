@@ -89,6 +89,9 @@ let g:select_info.cmdhistory.sink = {
 let g:select_info.cmdhistory.highlight = {"PrependLineNr": ['^\(\s*\d\+:\)', 'LineNr']}
 
 
+"""
+""" Select buftag
+"""
 if executable("ctags")
     let g:select_info.buftag = {}
     let g:select_info.buftag.data = {
