@@ -108,15 +108,17 @@ endif
 """
 """ Select gitfile
 """
-let g:select_info.gitfile = {}
-let g:select_info.gitfile.data = {"job": "git ls-files"}
-let g:select_info.gitfile.sink = {
-            \ "transform": {p, v -> fnameescape(p..v)},
-            \ "action": "edit %s",
-            \ "action2": "split %s",
-            \ "action3": "vsplit %s",
-            \ "action4": "tab split %s"
-            \ }
+if executable("git")
+    let g:select_info.gitfile = {}
+    let g:select_info.gitfile.data = {"job": "git ls-files"}
+    let g:select_info.gitfile.sink = {
+                \ "transform": {p, v -> fnameescape(p..v)},
+                \ "action": "edit %s",
+                \ "action2": "split %s",
+                \ "action3": "vsplit %s",
+                \ "action4": "tab split %s"
+                \ }
+endif
 
 
 """
