@@ -32,6 +32,7 @@ if exists("g:loaded_select")
     nmap <leader>fh <Plug>(SelectHighlight)
     nmap <leader>ft <Plug>(SelectBufTag)
     nmap <leader>fg <Plug>(SelectGitFile)
+    nmap <leader>fT <Plug>(SelectToDo)
 endif
 ------------------------------------------------------------------------------
 
@@ -49,6 +50,7 @@ nmap <leader>fc <Plug>(SelectColors)
 nmap <leader>fh <Plug>(SelectHighlight)
 nmap <leader>ft <Plug>(SelectBufTag)
 nmap <leader>fg <Plug>(SelectGitFile)
+nmap <leader>fT <Plug>(SelectToDo)
 ------------------------------------------------------------------------------
 
 
@@ -77,3 +79,7 @@ NOTE: External tool `ripgrep` is required.
 NOTE: External tool `ctags` is required.
 
 * `:Select gitfile` -- select file from git repo of the current working directory.
+
+* `:Select todo` -- select TODO:, FIXME: or XXX: and go to it.
++
+NOTE: External tool `ripgrep` is required.

@@ -93,3 +93,10 @@ NOTE: External tool `ctags` is required.
 :Select gitfile                                              *:Select_gitfile*
 
 Select file from git repo of the current working directory.
+
+
+:Select todo                                                    *:Select_todo*
+
+Select TODO:, FIXME: or XXX: and go to it.
+
+NOTE: External tool `ripgrep` is required.

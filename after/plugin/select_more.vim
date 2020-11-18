@@ -11,6 +11,7 @@ nnoremap <silent> <Plug>(SelectHelp) :Select help<CR>
 nnoremap <silent> <Plug>(SelectBufLine) :Select bufline<CR>
 nnoremap <silent> <Plug>(SelectBufTag) :Select buftag<CR>
 nnoremap <silent> <Plug>(SelectGitFile) :Select gitfile<CR>
+nnoremap <silent> <Plug>(SelectToDo) :Select todo<CR>
 
 
 
@@ -127,6 +128,23 @@ endif
 
 
 """
+""" Select todo
+"""
+if executable('rg')
+    let g:select_info.todo = {}
+    let g:select_info.todo.data = {"job": 'rg --vimgrep "(TODO|FIXME|XXX):" .'}
+    let g:select_info.todo.sink = {
+                \ "action": {v -> s:todo_sink(v, 'edit')},
+                \ "action2": {v -> s:todo_sink(v, 'split')},
+                \ "action3": {v -> s:todo_sink(v, 'vsplit')},
+                \ "action4": {v -> s:todo_sink(v, 'tab split')}
+                \ }
+    let g:select_info.todo.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
+    let g:select_info.todo.prompt = "TODO> "
+endif
+
+
+"""
 """ Helpers
 """
 
@@ -189,3 +207,13 @@ func! s:transform_tag(tag) abort
                 \ tag_info[3],
                 \ tag_info[0])
 endfunc
+
+
+"" Goto TODO
+func! s:todo_sink(value, cmd) abort
+    let matches = matchlist(a:value, '^\(.*\):\(\d\+\):\(\d\+\):\s')
+    exe a:cmd.." "..matches[1]
+    exe matches[2]
+    exe "normal! "..matches[3].."|"
+endfunc
+
