@@ -211,7 +211,7 @@ endfunc
 
 "" Goto TODO
 func! s:todo_sink(value, cmd) abort
-    let matches = matchlist(a:value, '^\(.*\):\(\d\+\):\(\d\+\):\s')
+    let matches = matchlist(a:value, '^\(.\{-}\):\(\d\+\):\(\d\+\):')
     exe a:cmd.." "..matches[1]
     exe matches[2]
     exe "normal! "..matches[3].."|"
