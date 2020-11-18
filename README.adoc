@@ -62,11 +62,15 @@ NOTE: External tool `ripgrep` is required.
 
 * `:Select cmdhistory` and put it on command line.
 
-* `:Select bufline` and go to it. 
+* `:Select bufline` and go to it.
 
 * `:Select colors` and apply it.
 
-* `:Select highlight` group and copy it into unnamed register `"`.
+* `:Select highlight` group and:
+
+1. Transform it to proper |:highlight| command.
+2. Copy it to unnamed register `"`.
+2. Put it to command line.
 
 * `:Select buftag` -- select buffer tag and go to it.
 +

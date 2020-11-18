@@ -76,7 +76,11 @@ Select colorscheme and apply it.
 
 :Select highlight                                          *:Select_highlight*
 
-Select syntax highligh and copy it into unnamed register ".
+Select syntax highlight and
+
+1. Transform it to proper |:highlight| command.
+2. Copy it to unnamed register ".
+2. Put it to command line.
 
 
 :Select buftag                                                *:Select_buftag*

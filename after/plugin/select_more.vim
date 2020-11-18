@@ -157,13 +157,21 @@ func! s:get_highlights() abort
 endfunc
 
 
-"" Copy selected highlight into unnamed buffer
+"" Transform selected highlight to proper :highlight command.
+"" Copy selected highlight to unnamed buffer.
+"" Put selected highlight to command line.
 func! s:highlight_sink(val) abort
-    redir => l:hl
+    redir => hl
     exe "silent highlight "..a:val
     redir END
-    let @" = trim(substitute(l:hl, '\s*xxx\s*', ' ', ''))
-    echo @" 'is copied to unnamed register'
+    let hl = trim(substitute(hl, '\s*xxx\s*', ' ', ''))
+    let hl = trim(substitute(hl, '\s*cleared\s*', ' ', ''))
+    if hl =~ '.*links to.*'
+        let hl = 'link ' .. trim(substitute(hl, '\s*links to\s*', ' ', ''))
+    endif
+    let hl = 'hi ' .. hl
+    let @" = hl
+    call feedkeys(':' .. hl, 'n')
 endfunc
 
 
