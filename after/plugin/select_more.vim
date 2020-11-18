@@ -214,6 +214,9 @@ func! s:todo_sink(value, cmd) abort
     let matches = matchlist(a:value, '^\(.\{-}\):\(\d\+\):\(\d\+\):')
     exe a:cmd.." "..matches[1]
     exe matches[2]
-    exe "normal! "..matches[3].."|"
+    let col = matches[3]
+    if col > 1
+        exe "normal! 0"..(col-1).."l"
+    endif
 endfunc
 
