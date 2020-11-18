@@ -139,7 +139,7 @@ if executable('rg')
                 \ "action3": {v -> s:todo_sink(v, 'vsplit')},
                 \ "action4": {v -> s:todo_sink(v, 'tab split')}
                 \ }
-    let g:select_info.todo.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
+    let g:select_info.todo.highlight = {"GrepPrefix": ['^.\{-}:\d\+:\d\+:', 'Comment']}
     let g:select_info.todo.prompt = "TODO> "
 endif
 
