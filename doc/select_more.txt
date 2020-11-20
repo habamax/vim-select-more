@@ -6,14 +6,14 @@ License: MIT
 
 
 
-INTRODUCTION                                                     *select-more*
+INTRODUCTION                                              *select-more-plugin*
 
 This plugin extends https://github.com/habamax/vim-select with additional
 selects.
 
 
 
-MAPPINGS                                                *select-more-mappings*
+MAPPINGS                                         *select-more-plugin-mappings*
 
 There are no default global mappings -- create your own.
 
@@ -45,7 +45,7 @@ or regular:
 
 
 
-COMMANDS                                                *select-more-commands*
+COMMANDS                                         *select-more-plugin-commands*
 
 :Select help                                                    *:Select_help*
 
