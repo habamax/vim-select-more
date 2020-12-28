@@ -195,7 +195,7 @@ endfunc
 
 "" Get list of tags for a filename
 func! s:get_btags(filename) abort
-    return "ctags -f - --sort=yes --excmd=number "..shellescape(a:filename).." 2> null"
+    return 'ctags -f - --sort=yes --excmd=number "'..a:filename..'" 2> null'
 endfunc
 
 
