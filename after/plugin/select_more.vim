@@ -45,7 +45,7 @@ let g:select_info.bufline.sink = {
             \ "transform": {_, v -> matchstr(v, '^\s*\zs\d\+')},
             \ "action": "normal! %sG"
             \ }
-let g:select_info.bufline.highlight = {"PrependLineNr": ['^\(\s*\d\+:\)', 'LineNr']}
+let g:select_info.bufline.highlight = {"PrependLineNr": ['^\(\s*\d\+:\)', 'Identifier']}
 
 
 
@@ -87,7 +87,7 @@ let g:select_info.cmdhistory.sink = {
             \ "transform": {_, v -> matchstr(v, '^\s*\d\+:\s*\zs.*$')},
             \ "action": {v -> feedkeys(':'..v, "nt")}
             \ }
-let g:select_info.cmdhistory.highlight = {"PrependLineNr": ['^\(\s*\d\+:\)', 'LineNr']}
+let g:select_info.cmdhistory.highlight = {"PrependLineNr": ['^\(\s*\d\+:\)', 'Identifier']}
 
 
 """
@@ -103,7 +103,7 @@ if executable("ctags")
             \ "action": "normal! %sG"
             \}
     let g:select_info.buftag.highlight = {
-                \ "PrependLineNr": ['^\(\s*\d\+:\)', 'LineNr'],
+                \ "PrependLineNr": ['^\(\s*\d\+:\)', 'Identifier'],
                 \ "TagType": ['\t\a\t', 'Type'],
                 \ }
 endif
