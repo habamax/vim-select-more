@@ -162,7 +162,7 @@ endfunc
 "" Uses ripgrep.
 func! s:get_helptags() abort
     let l:help = split(globpath(&runtimepath, 'doc/tags', 1), '\n')
-    return 'rg ^[^[:space:]]+ -No --no-heading --no-filename '..join(map(l:help, {_,v -> fnameescape(v)}))
+    return 'rg ^[^[:space:]]+ -No --no-heading --no-filename '..join(map(l:help, {_,v -> shellescape(v)}))
 endfunc
 
 
