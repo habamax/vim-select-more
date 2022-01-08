@@ -185,6 +185,7 @@ func! s:highlight_sink(val) abort
     redir => hl
     exe "silent highlight " .. a:val
     redir END
+    let hl = split(hl, '\n')[0]
     let hl = trim(substitute(hl, '\s*xxx\s*', ' ', ''))
     let hl = trim(substitute(hl, '\s*cleared\s*', ' ', ''))
     if hl =~ '.*links to.*'
