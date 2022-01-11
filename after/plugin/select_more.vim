@@ -31,7 +31,10 @@ let g:select_info.colors.sink = "colorscheme %s"
 """
 let g:select_info.help = {}
 let g:select_info.help.data = {"job": {-> s:get_helptags()}}
-let g:select_info.help.sink = "help %s"
+let g:select_info.help.sink = {
+            \ "action": "help %s",
+            \ "action4": "tab help %s"
+            \ }
 
 
 """
