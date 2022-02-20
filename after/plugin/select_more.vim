@@ -62,10 +62,9 @@ let g:select_info.highlight.sink = {
             \ "action": {v -> s:highlight_sink(v)}
             \ }
 let g:select_info.highlight.highlight = {->
-            \ s:get_highlights()
-            \ ->reduce(
+            \ s:get_highlights()->reduce(
             \   {acc, val ->
-            \       extend(acc, {matchstr(val, '^\S*'): [matchstr(val, '^\S*')..'\s*\zsxxx\ze\s*', matchstr(val, '^\S*')]}
+            \       extend(acc, {matchstr(val, '^\S*'): [matchstr(val, '^\S*') .. '\s*\zsxxx\ze\s*', matchstr(val, '^\S*')]}
             \  )}, {})}
 
 
@@ -177,7 +176,7 @@ func! s:get_highlights() abort
     redir END
     return filter(
           \ split(l:hl, '\n'),
-          \ {i, v -> v !~ 'Select.*' && v !~ '^\s*links to' && v !~ 'cleared$'})
+          \ {i, v -> v =~ '^\S' && v !~ 'Select.*' && v !~ '^\s*links to' && v !~ 'cleared$'})
 endfunc
 
 
