@@ -181,11 +181,13 @@ endfunc
 "" Copy selected highlight to unnamed buffer.
 "" Put selected highlight to command line.
 func! s:highlight_sink(val) abort
-    let hl = execute("silent highlight " .. a:val)->split('\n')[0]
-    let hl = trim(substitute(hl, '\s*xxx\s*', ' ', ''))
-    let hl = trim(substitute(hl, '\s*cleared\s*', ' ', ''))
-    if hl =~ '.*links to.*'
-        let hl = 'link ' .. trim(substitute(hl, '\s*links to\s*', ' ', ''))
+    let hl = execute("silent highlight " .. a:val)->split('\n')->map({_, v -> trim(v)})->join()
+    if hl =~ '.*xxx\s\+links to\s\+'
+        let hl = 'link ' .. trim(substitute(hl, '\s\+xxx\s\+links to\s\+', ' ', ''))
+    else
+        let hl = trim(substitute(hl, '\s*xxx\s*', ' ', ''))
+        let hl = trim(substitute(hl, '\s*cleared\s*', ' ', ''))
+        let hl = trim(substitute(hl, '\s*links to\s*.*$', '', ''))
     endif
     let hl = 'hi ' .. hl
     let @" = hl
