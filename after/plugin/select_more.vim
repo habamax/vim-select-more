@@ -171,11 +171,8 @@ endfunc
 
 "" Get list of highlights without highlights used by Select plugin
 func! s:get_highlights() abort
-    redir => l:hl
-    silent highlight
-    redir END
     return filter(
-          \ split(l:hl, '\n'),
+          \ execute("highlight")->split('\n'),
           \ {i, v -> v =~ '^\S' && v !~ 'Select.*' && v !~ '^\s*links to' && v !~ 'cleared$'})
 endfunc
 
@@ -184,10 +181,7 @@ endfunc
 "" Copy selected highlight to unnamed buffer.
 "" Put selected highlight to command line.
 func! s:highlight_sink(val) abort
-    redir => hl
-    exe "silent highlight " .. a:val
-    redir END
-    let hl = split(hl, '\n')[0]
+    let hl = execute("silent highlight " .. a:val)->split('\n')[0]
     let hl = trim(substitute(hl, '\s*xxx\s*', ' ', ''))
     let hl = trim(substitute(hl, '\s*cleared\s*', ' ', ''))
     if hl =~ '.*links to.*'
